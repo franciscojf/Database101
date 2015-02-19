@@ -133,7 +133,7 @@
 					<section>
 						<h2>Qué es una base de datos?</h2>
 						<div class="fullLine">
-							Una base de datos es una estructura informática integrada compartida que almacena una colección de datos de interes para un usuario y datos sobre los datos (Metadata).
+							Una base de datos es una estructura informática integrada compartida que almacena una colección de datos de interés para un usuario y datos sobre los datos (Metadata).
 						</div>
 						<div class="leftColumn">
 							<img data-src="img/db.jpg">
@@ -157,7 +157,7 @@
 								<li>Modelo de datos fijo</li>
 								<li>Almacena los datos en tablas, filas y columnas</li>
 								<li>Verticalmente escalable</li>
-								<li>Optimo para consultas complejas</li>
+								<li>Óptimo para consultas complejas</li>
 								<li class="fragment">ej. Rows en una tabla<br/>
 									<img data-src="img/sqlDataRepresentation.png"/>
 								</li>
@@ -175,7 +175,7 @@
 								<li>No esquemas</li>
 								<li>Almacena los datos en documentos, pares de llave-valor, etc.</li>
 								<li>Horizontalmente escalable</li>
-								<li>Optimo para datos jerárquicos y variables</li>
+								<li>Óptimo para datos jerárquicos y variables</li>
 								<li class="fragment">ej. Documento en MongoDB (JSON)<br/>
 									<pre>
 										<code data-trim json>
@@ -232,16 +232,19 @@
 						<div class="leftColumn">
 							<img data-src="img/sampleErd.png"/>
 						</div>
-						<div class="rightColumn">
+						<div class="rightColumn smallText">
 							<ul>
 								<li class="fragment">
-									Primary Key: Uno o mas campos que identifican el record unicamente
+									Primary Key: Uno o mas campos que identifican el record únicamente
 								</li>
 								<li class="fragment">
 									Foreign Key: Un campo que tiene el PK de otra tabla para relacionarlo
 								</li>
 								<li class="fragment">
-									Business o Composite Key: Uno o mas campos que pueden identificar el record unicamente pero no es un PK
+									Business o Composite Key: Uno o mas campos que pueden identificar el record únicamente pero no es un PK
+								</li>
+								<li class="fragment">
+									Surrogate key: Llave única que se utiliza para identificar un record que viene de otro sistema y no es derivado de la data. A este record se le crea una llave nueva para no alterar la llave del sistema fuente. Utilizado en Data Warehouse comunmente.
 								</li>
 							</ul>
 						</div>
@@ -272,8 +275,8 @@
 								<li><strong>Conceptual</strong>
 									<ul>
 										<li>El más cercano al lenguaje de negocios</li>
-										<li>Es basicamente un draft</li>
-										<li>No esta atado un tipo de base de datos</li>
+										<li>Es básicamente un draft</li>
+										<li>No esta atado un tipo de base de dato</li>
 										<li>Exelente para demostrar el concepto al cliente</li>
 									</ul>
 								</li>
@@ -297,7 +300,7 @@
 											</ul>
 										</li>
 										<li>Utiliza el modelo conceptual como base</li>
-										<li>No esta asociado a una plataforma especifica</li>
+										<li>No esta asociado a una plataforma específica</li>
 									</ul>
 								</li>
 							</ul>
@@ -315,7 +318,7 @@
 									<ul>
 										<li>Utiliza el modelo lógico como base (a veces igual)</li>
 										<li>Define la implementación exacta del modelo lógico</li>
-										<li>Esta asociado a una plataforma especifica
+										<li>Esta asociado a una plataforma específica
 											<ul>
 												<li>SQL Server en nuestro caso</li>
 											</ul>
@@ -336,28 +339,98 @@
 					<section>
 						<h2>SQL Server 2012</h2>
 						<ul>
-							<li>RDBMS</li>
+							<li>Relational Database Management System</li>
 							<li>Incluye:
-								<ul>
-									<li><strong>Database Engine</strong></li>
-									<li><strong>SQL Server Reporting Services</strong></li>
-									<li><strong>SQL Server Integration Services</strong></li>
-									<li><strong>SQL Server Analisys Services</strong></li>
-									<li><strong>SQL Server Management Studio</strong></li>
-									<li>High Availability</li>
-									<li>Self-Service Business Intelligence</li>
-									<li>Data Management (limpieza de datos)</li>
-									<li>Seguridad Avanzada</li>
-									<li>Data Warehousing</li>
-								</ul>
+								<div class="smallText">
+									<ul>
+										<li><strong>Database Engine</strong></li>
+										<li><strong>SQL Server Reporting Services</strong></li>
+										<li><strong>SQL Server Integration Services</strong></li>
+										<li><strong>SQL Server Analisys Services</strong></li>
+										<li><strong>SQL Server Management Studio</strong></li>
+										<li>High Availability</li>
+										<li>Self-Service Business Intelligence</li>
+										<li>Data Management (limpieza de datos)</li>
+										<li>Seguridad Avanzada</li>
+										<li>Data Warehousing</li>
+									</ul>
+								</div>
 							</li>
 						</ul>
-						<p>
+						<p class="smallText">
 							**Actualmente tienen acceso con Microsoft Academic Alliance!
 						</p>
 					</section>
 					<section>
 						<h2>Instalación y configuración de SQL Server</h2>
+					</section>
+					<section>
+						<img data-src="img/installation/Step1.png">
+					</section>
+					<section>
+						<img data-src="img/installation/Step2.png">
+					</section>
+					<section>
+						<img data-src="img/installation/Step3.png">
+					</section>
+					<section>
+						<img data-src="img/installation/Step4.png">
+					</section>
+					<section>
+						<img data-src="img/installation/Step5.png">
+					</section>
+					<section>
+						<img data-src="img/installation/Step6.png">
+					</section>
+					<section>
+						<img data-src="img/installation/Step7.png">
+					</section>
+					<section>
+						<img data-src="img/installation/Step8.png">
+					</section>
+					<section>
+						<img data-src="img/installation/Step9.png">
+					</section>
+					<section>
+						<img data-src="img/installation/Step10.png">
+					</section>
+					<section>
+						<img data-src="img/installation/Step11.png">
+					</section>
+					<section>
+						<img data-src="img/installation/Step12.png">
+					</section>
+					<section>
+						<img data-src="img/installation/Step13.png">
+					</section>
+					<section>
+						<img data-src="img/installation/Step14.png">
+					</section>
+					<section>
+						<img data-src="img/installation/Step15.png">
+					</section>
+					<section>
+						<img data-src="img/installation/Step16.png">
+					</section>
+					<section>
+						<img data-src="img/installation/Step17.png">
+					</section>
+					<section>
+						<img data-src="img/installation/Step18.png">
+					</section>
+					<section>
+						<h2>Instalar Adventure Works</h2>
+						<ul>
+							<li>Base de datos ejemplo</li>
+							<li>Desarrollada por la comunidad</li>
+							<li>Tiene múltiples estilos para diferentes necesidades (OLTP, DW, ect)</li>
+							<li>Links: 
+								<ul>
+									<li><a href="http://msftdbprodsamples.codeplex.com/releases/view/93587" target="_blank">Pagina de la comunidad</a></li>
+									<li><a href="http://msftdbprodsamples.codeplex.com/downloads/get/478214" target="_blank">Link directo a base de datos</a></li>
+								</ul>
+							</li>
+						</ul>
 					</section>
 				</section>
 
