@@ -1,0 +1,35 @@
+.leftColumn{
+	float: left;
+	width: 40%;
+}
+
+.rightColumn{
+	float: right;
+	width: 60%;
+}
+
+#intro .leftColumn{
+	float: left;
+	width: 50%;
+}
+
+#intro .rightColumn{
+	float: right;
+	width: 50%;
+}
+
+#questionImage{
+	margin-top: -15px;
+}
+
+.fullLine{
+	clear: both;
+}
+
+.smallText{
+	font-size: .75em !important;
+}
+
+#prpassLogo{
+	border-style: none;
+}

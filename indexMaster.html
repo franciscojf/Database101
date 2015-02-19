@@ -1,0 +1,366 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>Databases 101</title>
+
+		<meta name="description" content="Introducción a las bases de datos.">
+		<meta name="author" content="Francisco J. Fernández">
+
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/sky.css" id="theme">
+
+		<!-- Code syntax highlighting -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<!-- Custom css -->
+		<link rel="stylesheet" href="css/custom.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+
+	<body>
+		<div class="reveal">
+
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<div class="slides">
+				<section>
+					<h1>Database 101</h1>
+					<h3>Introducción a las bases de datos.</h3>
+
+					<p>
+						<small>Por Francisco J. Fernández</small>
+						<br/>
+						<small>PRPASS UTour</small>
+						<br/>
+						<img id="prpassLogo" data-src="img/prpass.png"/>
+					</p>
+
+
+				</section>
+
+				<section>
+					<h2>Francisco J. Fernández</h2>
+					<div class="leftColumn">
+						<img data-src="img/QuienSoy.jpg">
+					</div>
+					<div class="rightColumn">
+						<br/>
+						<ul>
+							<li>Ex-Alumno de la UMET</li>
+							<li>Finalista Imagine Cup 2010/11</li>
+							<li>Colaborador PRPASS</li> 
+							<li>Consultor Desarrollo/BI Nagno</li>
+						</ul>
+					</div>
+				</section>
+
+				<section>
+					<h2>Itinerario</h2>
+					<ul>
+						<li class="fragment">Introducción</li>
+						<li class="fragment">Qué es una base de datos?</li>
+						<li class="fragment">Diferentes tipos de bases de datos</li>
+						<li class="fragment">Tablas, "Keys" y Reglas de integridad</li>
+						<!-- <li class="fragment">Redundancia en los datos</li>
+						<li class="fragment">Modelo de entidades relacionales</li>
+						<li class="fragment">Normalización</li> -->
+						<li class="fragment">Modelos</li>
+						<li class="fragment">Configuración de SQL Server</li>
+					</ul>
+				</section>
+
+				<section>
+					<section id="intro">
+						<h2>Datos Día a Día</h2>
+						<div class="fullLine">
+							<img data-src="img/architecture.jpg">
+						</div>
+						<div class="fragment">
+							<div class="leftColumn smallText">
+								<ul>
+									<li>Flat Files
+										<ul>
+											<li>Fixed</li>
+											<li>Comma Delimited</li>
+										</ul>
+									</li>
+									<li>Jerárquica (utilizaba files con punteros)</li>
+									<li>Orientada a Objetos</li>
+								</ul>
+							</div>
+							<div class="rightColumn smallText">
+								<ul>
+									<li>XML</li>
+									<li>Relacional</li>
+									<li>New kid on the block -> Big Data</li>
+								</ul>
+							</div>
+						</div>
+					</section>
+
+					<section>
+						<h2>Qué es una base de datos?</h2>
+						<div class="fullLine">
+							Una base de datos es una estructura informática integrada compartida que almacena una colección de datos de interes para un usuario y datos sobre los datos (Metadata).
+						</div>
+						<div class="leftColumn">
+							<img data-src="img/db.jpg">
+						</div>
+						<div class="rightColumn">
+							<ul>
+								<li>Database Management System (DBMS)</li>
+								<li>Lenguajes (SQL, uQL)</li>
+								<li>Relacionales y NoSql entre otros</li>
+							</ul>
+						</div>
+					</section>
+					<section>
+						<h2>Relacional</h2>
+						<div class="leftColumn">
+							<img data-src="img/DBRelational.jpg">
+						</div>
+						<div class="rightColumn smallText">
+							<br/>
+							<ul>
+								<li>Modelo de datos fijo</li>
+								<li>Almacena los datos en tablas, filas y columnas</li>
+								<li>Verticalmente escalable</li>
+								<li>Optimo para consultas complejas</li>
+								<li class="fragment">ej. Rows en una tabla<br/>
+									<img data-src="img/sqlDataRepresentation.png"/>
+								</li>
+							</ul>
+						</div>
+					</section>
+					<section>
+						<h2>No Relacional</h2>
+						<div class="leftColumn">
+							<img data-src="img/DBNonRelational.jpg">
+						</div>
+						<div class="rightColumn smallText">
+							<br/>
+							<ul>
+								<li>No esquemas</li>
+								<li>Almacena los datos en documentos, pares de llave-valor, etc.</li>
+								<li>Horizontalmente escalable</li>
+								<li>Optimo para datos jerárquicos y variables</li>
+								<li class="fragment">ej. Documento en MongoDB (JSON)<br/>
+									<pre>
+										<code data-trim json>
+											{
+	"_id" : ObjectId("54e2b65b406947105fd45636"),
+	"languages" : [
+		"ruby",
+		"c"
+	],
+	"name" : "Johnny"
+}
+{
+	"_id" : ObjectId("54e2b65e1cdcaf47923dc688"),
+	"name" : "Sue",
+	"telephone" : 7879991234
+}
+										</code>
+									</pre>
+								</li>
+							</ul>
+						</div>
+					</section>
+				</section>
+
+				<section>
+					<section id="theRelationalModel">
+						<h2>El Modelo Relacional</h2>
+						<ul>
+							<li>Es basado en la teoria de conjuntos</li>
+							<li>La relación entre elementos es basada en valores y no en orden</li>
+							<li>Las reglas para una base de datos relacional son descritas por el negocio</li>
+							<li>Utiliza tablas, filas y columnas para guardar los datos</li>
+						</ul>
+					</section>
+
+					<section>
+						<h2>Tablas</h2>
+						<div class="leftColumn">
+							<div><img data-src="img/sampleErd.png"/></div>
+							<div class="fragment"><img data-src="img/userTbl_rows.png"/></div>
+						</div>
+						<div class="rightColumn">
+							<ul>
+								<li>Representan una entidad</li>
+								<li>Conjunto de filas y columnas que representa una instancia de la entidad</li>
+								<li>Las filas no tienen un orden especifico</li>
+								<li>Cada fila debe tener una columna o conjunto de columnas que identifican la entidad</li>
+							</ul>
+						</div>
+					</section>
+
+					<section>
+						<h2>"Keys" y Reglas de Integridad</h2>
+						<div class="leftColumn">
+							<img data-src="img/sampleErd.png"/>
+						</div>
+						<div class="rightColumn">
+							<ul>
+								<li class="fragment">
+									Primary Key: Uno o mas campos que identifican el record unicamente
+								</li>
+								<li class="fragment">
+									Foreign Key: Un campo que tiene el PK de otra tabla para relacionarlo
+								</li>
+								<li class="fragment">
+									Business o Composite Key: Uno o mas campos que pueden identificar el record unicamente pero no es un PK
+								</li>
+							</ul>
+						</div>
+					</section>
+
+					<section>
+						<h2>Como lo hago???</h2>
+						<div class="leftColumn">
+							<img data-src="img/questionMark_small.jpg"/>
+						</div>
+						<div class="rightColumn">
+							<br/>
+							<ul >
+								<li>Cuantas tablas necesito?</li>
+								<li>Que columnas van en que tablas?</li>
+								<li>Como se relacionan</li>
+							</ul>
+						</div>
+					</section>
+
+					<section>
+						<h2>Modelos de Datos</h2>
+						<div class="leftColumn">
+							<img data-src="img/conceptual.jpg"/>
+						</div>
+						<div class="rightColumn smallText">
+							<ul>
+								<li><strong>Conceptual</strong>
+									<ul>
+										<li>El más cercano al lenguaje de negocios</li>
+										<li>Es basicamente un draft</li>
+										<li>No esta atado un tipo de base de datos</li>
+										<li>Exelente para demostrar el concepto al cliente</li>
+									</ul>
+								</li>
+							</ul>
+						</div>
+					</section>
+
+					<section>
+						<h2>Modelos de Datos</h2>
+						<div class="leftColumn">
+							<img data-src="img/logical.jpg"/>
+						</div>
+						<div class="rightColumn smallText">
+							<ul>
+								<li><strong>Lógico</strong>
+									<ul>
+										<li>Define como van a estar los dato guardados</li>
+										<li>Especifico para un tipo de bases de datos
+											<ul>
+												<li>En nuestro caso relacional</li>
+											</ul>
+										</li>
+										<li>Utiliza el modelo conceptual como base</li>
+										<li>No esta asociado a una plataforma especifica</li>
+									</ul>
+								</li>
+							</ul>
+						</div>
+					</section>
+
+					<section>
+						<h2>Modelos de Datos</h2>
+						<div class="leftColumn">
+							<img data-src="img/sampleErd.png"/>
+						</div>
+						<div class="rightColumn smallText">
+							<ul>
+								<li><strong>Físico</strong>
+									<ul>
+										<li>Utiliza el modelo lógico como base (a veces igual)</li>
+										<li>Define la implementación exacta del modelo lógico</li>
+										<li>Esta asociado a una plataforma especifica
+											<ul>
+												<li>SQL Server en nuestro caso</li>
+											</ul>
+										</li>
+									</ul>
+								</li>
+							</ul>
+						</div>
+					</section>
+				</section>
+
+			</div>
+		</div>
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.js"></script>
+
+		<script>
+
+			// Full list of configuration options available at:
+			// https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+				center: true,
+
+				transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+				multiplex: {
+			        // Example values. To generate your own, see the socket.io server instructions.
+			        secret: '14240425574252539109', // Obtained from the socket.io server. Gives this (the master) control of the presentation
+			        id: 'da705f87402afb2a', // Obtained from socket.io server
+			        url: 'revealjs.jit.su:80' // Location of socket.io server
+			    },
+
+				// Optional reveal.js plugins
+				dependencies: [
+					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/highlight/highlight.js', async: true, condition: function() { return !!document.querySelector( 'pre code' ); }, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: 'plugin/zoom-js/zoom.js', async: true },
+					{ src: 'plugin/notes/notes.js', async: true },
+
+					{ src: 'https://cdn.socket.io/socket.io-1.3.4.js', async: true },
+			        { src: 'plugin/multiplex/master.js', async: true }
+				]
+			});
+
+			Reveal.configure({
+			  keyboard: {
+			    13: function (){ var slideState = Reveal.getState(); }, 
+				80: function (){ paused = !paused; }
+			  }
+			});
+
+			
+		</script>
+
+	</body>
+</html>
